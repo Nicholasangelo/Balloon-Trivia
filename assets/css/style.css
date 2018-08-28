@@ -1,0 +1,38 @@
+body {
+    
+    background-image: url('../images/Clouds.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.2em;
+}
+.question {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border: solid 1px white;
+    border-radius: 100px;
+    background-color: red;
+    animation-name: question;
+    animation-duration: 15s; 
+}
+    @keyframes question {
+        0%   {left:2em; top:20em;}
+        50%  {left:2em; top:17em;}
+        75%  {left:2em; top:15em;}
+        100%  {left:2em; top:9em;}
+}
+p { position: relative;
+    top: 27%;
+    left: 2%;
+    color: white;
+}
+#timer {
+    position: relative;
+    text-align: center;
+    display: inline;
+    text-align: center;
+    left: 42%;
+    bottom: 10%;
+}
