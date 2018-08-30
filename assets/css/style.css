@@ -3,26 +3,90 @@ body {
     background-image: url('../images/Clouds.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: fixed, center;
     font-family: 'Reenie Beanie', cursive;
     font-size: 1.2em;
 }
-.question {
+.questionOne {
     position: relative;
-    width: 220px;
-    height: 220px;
+    width: 340px;
+    height: 340px;
     border: solid 1px white;
-    border-radius: 100px;
+    border-radius: 200px;
+    background-color: red;
+    animation-name: questionOne;
+    animation-duration: 15s; 
+}
+    @keyframes questionOne {
+        0%   {left:4em; top:20em;}
+        50%  {left:4em; top:15em;}
+        75%  {left:4em; top:10em;}
+        100%  {left:2em; top:4em;}
+}
+/* .questionTwo {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    border: solid 1px white;
+    border-radius: 200px;
     background-color: red;
     animation-name: question;
     animation-duration: 15s; 
 }
-    @keyframes question {
-        0%   {left:2em; top:20em;}
-        50%  {left:2em; top:17em;}
-        75%  {left:2em; top:15em;}
-        100%  {left:2em; top:9em;}
+    @keyframes questionTwo {
+        0%   {left:9em; top:28em;}
+        50%  {left:9em; top:16em;}
+        75%  {left:4em; top:10em;}
+        100%  {left:4em; top:2em;}
 }
+.questionThree {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    border: solid 1px white;
+    border-radius: 200px;
+    background-color: red;
+    animation-name: question;
+    animation-duration: 15s; 
+}
+    @keyframes questionThree {
+        0%   {left:18em; top:20em;}
+        50%  {left:18em; top:10em;}
+        75%  {left:16em; top:6em;}
+        100%  {left:6em; top:4em;}
+}
+.questionFour {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    border: solid 1px white;
+    border-radius: 200px;
+    background-color: red;
+    animation-name: question;
+    animation-duration: 15s; 
+}
+    @keyframes questionFour {
+        0%   {left:12em; top:25em;}
+        50%  {left:10em; top:20em;}
+        75%  {left:8em; top:10em;}
+        100%  {left:8em; top:4em;}
+}
+.questionFive {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    border: solid 1px white;
+    border-radius: 200px;
+    background-color: red;
+    animation-name: question;
+    animation-duration: 15s; 
+}
+    @keyframes questionFive {
+        0%   {left:2em; top:20em;}
+        50%  {left:4em; top:12em;}
+        75%  {left:4em; top:15em;}
+        100%  {left:10em; top:4em;}
+} */
 p { position: relative;
     top: 27%;
     left: 2%;
@@ -35,4 +99,17 @@ p { position: relative;
     text-align: center;
     left: 42%;
     bottom: 10%;
+}
+#countDown {
+    border: solid 1px black;
+    background-color: white;
+    width: 90px;
+    height: 90px;
+    position: fixed;
+    left: 46%;
+    text-align: center;
+}
+button {
+    position: absolute;
+    left: 40%;
 }
