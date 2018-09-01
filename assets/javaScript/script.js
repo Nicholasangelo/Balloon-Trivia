@@ -29,7 +29,6 @@ questions = [{
 }];
 
 
-
 //VARS
 var countOne = 15;
 var countTwo = 15;
