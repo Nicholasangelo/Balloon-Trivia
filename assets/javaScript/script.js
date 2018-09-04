@@ -30,76 +30,76 @@ questions = [{
 
 
 //VARS
-var countOne = 15;
-var countTwo = 15;
-var countThree = 15;
-var countFour = 15;
-var countFive = 15;
-
+var count = 15;
 var intervalId;
 var incorrect;
 var correct;
-
 var currentQuestion = 0;
 
 //SEND VAR TO HTML
 $("#countDown").html(incorrect);
 
-
 //SETS STATUS QUO -- PAGE BEFORE START
 statusQ();
 
 // SET TIMEOUTS FOR INCOMING DIVS ((QUESTIONS))
-// setTimeout(sixteenSeconds, 16000);
+// setTimeout(askQuestionTwo, 16000);
 // setTimeout(thirtytwoSeconds, 1000 * 32);
 // setTimeout(fortyeightSeconds, 1000 * 48);
 // setTimeout(sixtythreeSeconds, 1000 * 63);
 
-// FUNCTION PARTY
+// ----------FUNCTION PARTY--------------------------------------------
 function statusQ() {
     $(".questionOne").css("display", "none");
-    $(".questionTwo").css("visibility", "hidden");
+    $(".questionTwo").css("display", "none");
     $(".questionThree").css("visibility", "hidden");
     $(".questionFour").css("visibility", "hidden");
     $(".questionFive").css("visibility", "hidden");
 }
-
+//START COUNTDOWN
+function startTimer() {
+    count--;
+    $("#timer").text(count);
+}
+//ASK QUESTION ONE
 function askQuestionOne() {
     questionOne = $(".questionOne");
+    //questions balloon appears on screen && displays question and answers
     questionOne.css("display", "block");
-    //START COUNTDOWN -- CONDISH: IF YOU RUN OUT OF TIME DIV VANISHES && WE ADD ONE TO "INCORRECT"
-    countOne--;
-    $("#timer").text(countOne);
-    $("#firstQ").html(questions[this.currentQuestion].question);
-    for (var i = 0; i < questions[this.currentQuestion].choices.length; i++) {
-        $("#firstA").append('<button class="userAnswer" id="button"' + questions[this.currentQuestion].choices.length + '</button>');
-
+    $("#firstQ").html(questions[currentQuestion].question);
+    for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+        $("#firstA").append('<button class="userAnswer" id="button">' + questions[currentQuestion].choices[i] + '</button>');
     }
-    if (countOne === -1) {
+    //if the correct answer is not chosen the balloon will "pop"
+    if (count === -1) {
         questionOne.css("visibility", "hidden");
         stop();
+        currentQuestion++;
         count = 15;
         incorrect++;
     }
-    setTimeout(function () {
+}
+//ASK QUESTION TWO
+function askQuestionTwo() {
+    setTimeout(function (askQuestionTwo) {
         $(".questionTwo").css("display", "block");
-        currentQuestion++;
-        countTwo--;
-        $("#timer").text(countTwo);
-        $("#secondQ").html(questions[this.currentQuestion].question);
-        for (var i = 0; i < questions[this.currentQuestion].choices.length; i++) {
-            $("#secondA").append('<button class="userAnswer" id="button"' + questions[this.currentQuestion].choices.length + '</button>');
 
-            if (countTwo === 0) {
-                $(".questionTwo").css("visibility", "hidden");
-                stop();
-                count = 15;
-                incorrect++;
-        
-            }
+        $("#secondQ").html(questions[currentQuestion].question);
+        for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+            $("#secondA").append('<button class="userAnswer" id="button">' + questions[currentQuestion].choices[i] + '</button>');
         }
     }, 16000);
+    if (count === 0) {
+        $(".questionTwo").css("visibility", "hidden");
+        stop();
+        currentQuestion++;
+        count = 15;
+        incorrect++;
+
+    }
 }
+
+
 
 // function questionThree() {
 //     setTimeout(thirtytwoSeconds, 1000 * 32);
@@ -140,7 +140,9 @@ function startGame() {
     clearInterval(intervalId);
     intervalId = setInterval(startGame, 1000);
     //DISPLAY FIRST DIV ON CLICK -- MOD STATUSQ
+    startTimer();
     askQuestionOne();
+    askQuestionTwo();
 
 }
 
