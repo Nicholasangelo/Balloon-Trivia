@@ -28,13 +28,13 @@ questions = [{
     correct: 2
 }];
 
-
 //VARS
 var count = 15;
 var intervalId;
 var incorrect;
 var correct;
 var currentQuestion = 0;
+
 
 //SEND VAR TO HTML
 $("#countDown").html(incorrect);
@@ -69,35 +69,36 @@ function askQuestionOne() {
     $("#firstQ").html(questions[currentQuestion].question);
     for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
         $("#firstA").append('<button class="userAnswer" id="button">' + questions[currentQuestion].choices[i] + '</button>');
-    }
-    //if the correct answer is not chosen the balloon will "pop"
-    if (count === -1) {
-        questionOne.css("visibility", "hidden");
+    };
+    //if the correct answer is not chosen the balloon will "pop" && if the correct answer IS chosen the balloon will pop
+    if (count <= 0) {
+        questionOne.css("display", "none");
         stop();
         currentQuestion++;
         count = 15;
         incorrect++;
     }
+
 }
 //ASK QUESTION TWO
 function askQuestionTwo() {
     setTimeout(function (askQuestionTwo) {
         $(".questionTwo").css("display", "block");
-
         $("#secondQ").html(questions[currentQuestion].question);
         for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
             $("#secondA").append('<button class="userAnswer" id="button">' + questions[currentQuestion].choices[i] + '</button>');
         }
     }, 16000);
-    if (count === 0) {
+    if (count === -1) {
         $(".questionTwo").css("visibility", "hidden");
         stop();
         currentQuestion++;
         count = 15;
         incorrect++;
-
     }
 }
+
+
 
 
 
@@ -138,7 +139,7 @@ function askQuestionTwo() {
 function startGame() {
     // CLEAR INTERVAL TO PREVENT MULTIPLE CLICKS -- SET INTERVAL TO 1 SECOND
     clearInterval(intervalId);
-    intervalId = setInterval(startGame, 1000);
+    intervalId = setInterval(startTimer, 1000);
     //DISPLAY FIRST DIV ON CLICK -- MOD STATUSQ
     startTimer();
     askQuestionOne();

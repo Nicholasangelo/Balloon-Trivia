@@ -35,9 +35,9 @@ body {
     /* animation-delay: 16s; */
 }
     @keyframes questionTwo {
-        0%   {left:5em; top:22em;}
+        0%   {left:6em; top:22em;}
         50%  {left:9em; top:16em;}
-        75%  {left:4em; top:10em;}
+        75%  {left:5em; top:8em;}
         100%  {left:4em; top:2em;}
 }
 .questionThree {
@@ -86,9 +86,9 @@ body {
     /* animation-delay: 63s; */
 }
     @keyframes questionFive {
-        0%   {left:2em; top:20em;}
-        50%  {left:4em; top:12em;}
-        75%  {left:4em; top:15em;}
+        0%   {left:33em; top:20em;}
+        50%  {left:20em; top:12em;}
+        75%  {left:22em; top:15em;}
         100%  {left:10em; top:4em;}
 }
 p { position: relative;
@@ -113,7 +113,7 @@ p { position: relative;
     left: 46%;
     text-align: center;
 }
-button {
+#start {
     position: absolute;
     left: 40%;
 }
