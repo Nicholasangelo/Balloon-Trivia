@@ -49,6 +49,7 @@ statusQ();
 // setTimeout(sixtythreeSeconds, 1000 * 63);
 
 // ----------FUNCTION PARTY--------------------------------------------
+// NOTHING IS REAL
 function statusQ() {
     $(".questionOne").css("display", "none");
     $(".questionTwo").css("display", "none");
@@ -60,7 +61,31 @@ function statusQ() {
 function startTimer() {
     count--;
     $("#timer").text(count);
+    //if the correct answer is not chosen the balloon will "pop" && if the correct answer IS chosen the balloon will pop 
+    if (count <= 0) {
+        questionOne.css("display", "none");
+        currenQuestion++;
+        count = 15;
+        incorrect++;
+    }
+
+    $("#timer").text(count);
+};
+
+// CHECK USER CLICK
+function userChoice() {
+    var click = $(".questionOne").on("click", "#firstA", function (event) {
+        console.log(click);
+        if (click === questions[currentQuestion].correct) {
+            questionOne.css("display", "none");
+            currentQuestion++;
+            count = 15;
+            incorrect++;
+        }
+    });
 }
+
+
 //ASK QUESTION ONE
 function askQuestionOne() {
     questionOne = $(".questionOne");
@@ -68,34 +93,27 @@ function askQuestionOne() {
     questionOne.css("display", "block");
     $("#firstQ").html(questions[currentQuestion].question);
     for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
-        $("#firstA").append('<button class="userAnswer" id="button">' + questions[currentQuestion].choices[i] + '</button>');
-    };
-    //if the correct answer is not chosen the balloon will "pop" && if the correct answer IS chosen the balloon will pop
-    if (count <= 0) {
-        questionOne.css("display", "none");
-        stop();
-        currentQuestion++;
-        count = 15;
-        incorrect++;
+        $(".firstA").append('<button class="userAnswer" id="button">' + questions[currentQuestion].choices[i] + '</button>');
     }
-
+    userChoice();
 }
+
 //ASK QUESTION TWO
 function askQuestionTwo() {
-    setTimeout(function (askQuestionTwo) {
-        $(".questionTwo").css("display", "block");
-        $("#secondQ").html(questions[currentQuestion].question);
-        for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
-            $("#secondA").append('<button class="userAnswer" id="button">' + questions[currentQuestion].choices[i] + '</button>');
-        }
-    }, 16000);
-    if (count === -1) {
-        $(".questionTwo").css("visibility", "hidden");
-        stop();
-        currentQuestion++;
-        count = 15;
-        incorrect++;
+    // setTimeout(function (askQuestionTwo) {
+    $("#questionTwo").css("display", "block");
+    $("#secondQ").html(questions[currentQuestion].question);
+    for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+        $("#secondA").append('<button class="userAnswer" id="button">' + questions[currentQuestion].choices[i] + '</button>');
     }
+    // }, 16000);
+    // if (count === -1) {
+    //     $(".questionTwo").css("visibility", "hidden");
+    //     stop();
+    //     currentQuestion++;
+    //     count = 15;
+    //     incorrect++;
+    // }
 }
 
 
@@ -146,4 +164,3 @@ function startGame() {
     askQuestionTwo();
 
 }
-
