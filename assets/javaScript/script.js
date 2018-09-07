@@ -31,8 +31,8 @@ questions = [{
 //VARS
 var count = 15;
 var intervalId;
-var incorrect;
-var correct;
+var incorrect = 0;
+var correct = 0;
 var currentQuestion = 0;
 
 
@@ -41,6 +41,8 @@ $("#countDown").html(incorrect);
 
 //SETS STATUS QUO -- PAGE BEFORE START
 statusQ();
+
+
 
 // SET TIMEOUTS FOR INCOMING DIVS ((QUESTIONS))
 // setTimeout(askQuestionTwo, 16000);
@@ -56,7 +58,42 @@ function statusQ() {
     $(".questionThree").css("visibility", "hidden");
     $(".questionFour").css("visibility", "hidden");
     $(".questionFive").css("visibility", "hidden");
+    $(".questionSix").css("display", "none");
+
+    $("#restart").css("display", "none");
 }
+
+//WIN || LOSE
+function win() {
+    if (correct === 6) {
+        alert("Congratulations, you are a real Airhead!");
+    }
+}
+//
+function restart() {
+    $("#restart").on("click", function() {
+    statusQ();
+    var countOne = 15;
+    var countTwo = 18;
+    var countThree = 20;
+    var countFour = 17;
+    var countFive = 25;
+    var countSix = 30;
+    var incorrect = 0;
+    var correct = 0;
+    $("#timerOne").text(countOne);
+    $("#timerTwo").text(countTwo);
+    $("#timerThree").text(countThree);
+    $("#timerFour").text(countFour);
+    $("#timerFive").text(countFive);
+    $("#timerSix").text(countSix);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " + incorrect);
+    $("#start").css("display", "block");
+})
+}
+
 //START COUNTDOWN
 function startTimer() {
     count--;
@@ -73,17 +110,36 @@ function startTimer() {
 };
 
 // CHECK USER CLICK
-function userChoice() {
-    var click = $(".questionOne").on("click", "#firstA", function (event) {
-        console.log(click);
-        if (click === questions[currentQuestion].correct) {
-            questionOne.css("display", "none");
-            currentQuestion++;
-            count = 15;
-            incorrect++;
-        }
-    });
-}
+$(".firstA").on("click", "#button", function () {
+    console.log($(this).text());
+    if ($(this).text() === "An Ape") {
+        correct++;
+        currentQuestion++;
+        askQuestionTwo();
+
+        $(".questionOne").css("visibility", "hidden");
+    } if ($(this).text() === 'True') {
+        correct++;
+        $(".questionTwo").css("visibility", "hidden");
+    } if ($(this).text() === '1824') {
+        correct++;
+        $(".questionThree").css("visibility", "hidden");
+    } if ($(this).text() === 'Graphene') {
+        correct++;
+        $(".questionFour").css("visibility", "hidden");
+    } if ($(this).text() === 'The Red Balloon') {
+        correct++;
+        $(".questionFive").css("visibility", "hidden");
+    } if ($(this).text() === 'Cold War paranoia') {
+        correct++;
+        $(".questionSix").css("visibility", "hidden");
+    } else (incorrect++);
+
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " + incorrect);
+
+    win();
+});
 
 
 //ASK QUESTION ONE

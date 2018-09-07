@@ -7,13 +7,20 @@ body {
     font-family: 'Reenie Beanie', cursive;
     font-size: 1.2em;
 }
+#aQs {
+    padding-top: 6em;
+    float: right;
+    /* word-spacing: unset; */
+    line-height: 4;
+}
 .questionOne {
+    text-align: center;
     position: absolute;
     width: 340px;
     height: 340px;
     border: solid 1px white;
     border-radius: 200px;
-    background-color: red;
+    background: -moz-radial-gradient(white red);
     animation-name: questionOne;
     animation-duration: 15s; 
 }
@@ -29,9 +36,9 @@ body {
     height: 340px;
     border: solid 1px white;
     border-radius: 200px;
-    background-color: blueviolet;
+    background: radial-gradient(white blueviolet);
     animation-name: questionTwo;
-    animation-duration: 15s; 
+    animation-duration: 18s; 
     /* animation-delay: 16s; */
 }
     @keyframes questionTwo {
@@ -41,14 +48,15 @@ body {
         100%  {left:4em; top:2em;}
 }
 .questionThree {
+    text-align: center;
     position: relative;
     width: 340px;
     height: 340px;
     border: solid 1px white;
     border-radius: 200px;
-    background-color: rgb(255, 0, 200);
+    background: (white rgb(255, 0, 200));
     animation-name: questionThree;
-    animation-duration: 15s; 
+    animation-duration: 20s; 
     /* animation-delay: 32s; */
 }
     @keyframes questionThree {
@@ -58,14 +66,15 @@ body {
         100%  {left:6em; top:4em;}
 }
 .questionFour {
+    text-align: center;
     position: relative;
     width: 340px;
     height: 340px;
     border: solid 1px white;
     border-radius: 200px;
-    background-color: rgb(255, 230, 0);
+    background: (white rgb(255, 230, 0));
     animation-name: questionFour;
-    animation-duration: 15s; 
+    animation-duration: 17s; 
     /* animation-delay: 48s; */
 }
     @keyframes questionFour {
@@ -75,14 +84,15 @@ body {
         100%  {left:8em; top:4em;}
 }
 .questionFive {
+    text-align: center;
     position: relative;
     width: 340px;
     height: 340px;
     border: solid 1px white;
     border-radius: 200px;
-    background-color: rgb(0, 255, 213);
+    background: (white rgb(0, 255, 213));
     animation-name: questionFive;
-    animation-duration: 15s; 
+    animation-duration: 25s; 
     /* animation-delay: 63s; */
 }
     @keyframes questionFive {
@@ -91,11 +101,30 @@ body {
         75%  {left:22em; top:15em;}
         100%  {left:10em; top:4em;}
 }
-p { position: relative;
-    top: 27%;
-    left: 2%;
-    color: white;
+.questionSix {
+    text-align: center;
+    position: relative;
+    width: 340px;
+    height: 340px;
+    border: solid 1px white;
+    border-radius: 200px;
+    background: radial-gradient(white, rgb(253, 173, 0));
+    animation-name: questionSix;
+    animation-duration: 30s; 
+    /* animation-delay: 63s; */
 }
+    @keyframes questionSix {
+        0%   {left:40em; top:17em;}
+        50%  {left:30em; top:12em;}
+        75%  {left:22em; top:22em;}
+        100%  {left:10em; top:6em;}
+    }
+    p { position: relative;
+        top: 35%;
+        left: 2%;
+        color: black;
+        font-size: 1.2em;
+    }
 #timer {
     position: relative;
     text-align: center;
@@ -106,14 +135,41 @@ p { position: relative;
 }
 #countDown {
     border: solid 1px black;
-    background-color: white;
-    width: 90px;
-    height: 90px;
+    background: radial-gradient(white, red);
     position: fixed;
-    left: 46%;
+    left: 47%;
     text-align: center;
+    font-weight: bolder;
+    border-radius: 100px;
+    padding: 1.2em;
+}
+#correct {
+    border: solid 1px black;
+    background: radial-gradient(white, purple);
+    position: fixed;
+    left: 56%;
+    top: 18%;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 100px;
+    padding: 1.2em;
+}
+#incorrect {
+    border: solid 1px black;
+    background: radial-gradient(white, orange);
+    position: fixed;
+    left: 63%;
+    top: 22%;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 100px;
+    padding: 1.2em;
 }
 #start {
+    position: absolute;
+    left: 40%;
+}
+#restart {
     position: absolute;
     left: 40%;
 }
